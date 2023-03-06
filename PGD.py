@@ -131,10 +131,10 @@ def test( model, device, test_loader, epsilon ):
             continue
 
         # Call PGD Attack
-        # perturbed_data = pgd_attack(data, epsilon, model, target)
+        perturbed_data = pgd_attack(data, epsilon, model, target)
 
-        attack = torchattacks.PGD(model, epsilon, alpha=epsilon/4, steps=10, random_start=True)
-        perturbed_data = attack(data, target)
+        #attack = torchattacks.PGD(model, epsilon, alpha=epsilon/4, steps=10, random_start=True)
+        #perturbed_data = attack(data, target)
 
         # Re-classify the perturbed image
         output = model(perturbed_data)
